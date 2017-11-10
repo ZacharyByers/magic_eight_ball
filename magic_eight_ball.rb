@@ -5,12 +5,16 @@ def menu
 
   exit 0 if input.downcase == 'q'
 
-  puts "The magic 8 ball says: "
+  puts "The magic 8 ball says: #{@answers[random_index]}"
 
   menu
 end
 
-@magic_answers = [
+def random_index
+  rand(0..(@answers.length - 1))
+end
+
+Magic_answers = [
   'Totally',
   'Absotively',
   'Probably',
@@ -25,3 +29,7 @@ end
   'Not a cookie\'s chance in kindergarten',
   'Nopety nopety noo.'
 ]
+
+@answers = Magic_answers.clone
+
+menu
